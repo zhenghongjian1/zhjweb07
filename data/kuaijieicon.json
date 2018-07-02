@@ -1,0 +1,43 @@
+[
+	{
+		"xsdesc": "话费充值",
+		"xsid": 1,
+		"xssrc": "uploadBaseDir/content/png/20180517/2018051715582591796d.png",
+		"xstitle": "话费充值"
+	}, {
+		"xsdesc": "流量充值",
+		"xsid": 2,
+		"xssrc": "uploadBaseDir/content/png/20180517/20180517155920454ryU.png",
+		"xstitle": "流量充值"
+	}, {
+		"xsdesc": "账单查询",
+		"xsid": 3,
+		"xssrc": "uploadBaseDir/content/png/20180517/20180517160544181a1D.png",
+		"xstitle": "账单查询"
+	}, {
+		"xsdesc": "套餐余量",
+		"xsid": 4,
+		"xssrc": "uploadBaseDir/content/png/20180517/20180517160609868CSa.png",
+		"xstitle": "套餐余量"
+	}, {
+		"xsdesc": "已办业务",
+		"xsid": 5,
+		"xssrc": "uploadBaseDir/content/png/20180517/20180517160632454pGn.png",
+		"xstitle": "已办业务"
+	}, {
+		"xsdesc": "流量管家",
+		"xsid": 6,
+		"xssrc": "uploadBaseDir/content/png/20180517/20180517160955042nB6.png",
+		"xstitle": "流量管家"
+	}, {
+		"xsdesc": "4G专区",
+		"xsid": 7,
+		"xssrc": "uploadBaseDir/content/png/20180517/201805171610406916zw.png",
+		"xstitle": "4G专区"
+	}, {
+		"xsdesc": "国际/港澳台",
+		"xsid": 8,
+		"xssrc": "uploadBaseDir/content/png/20180517/20180517161206947Lac.png",
+		"xstitle": "国际/港澳台"
+	}
+]

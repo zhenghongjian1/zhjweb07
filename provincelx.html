@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>掌上门户-中国移动</title>
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="css/wapMobile.css" rel="stylesheet">
+		<script type="text/javascript" src="bootstrap/js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + 'px'; 
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body id="bootstrap">
+		<header>
+			<section class="select_city">
+				<a class="pageback" href="javascript:window.history.back();"></a>选择省份
+			</section>
+		</header>
+		<div class="clearfix"></div>
+		<div id="citycon"  class="citycon">
+		</div>
+		<!--尾部-->
+		<footer>
+		</footer>
+		<script src="js/webContent.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.tmpl.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script id="template1" type="text/x-jquery-tmpl">		
+			<ul >
+				<li style="width: 25%;float: left;"><a data-province_id="${province_id}" class="ac_show_city" iscity="" href="javascript:void(0)">${name}</a></li>
+			</ul>			
+			{{tmpl($data) '#template2'}}
+		</script>
+		
+		<script id="template11" type="text/x-jquery-tmpl">	
+				<li style="width: 25%;float: left;"><a data-province_id="${province_id}" class="ac_show_city" iscity="" href="javascript:void(0)">${name}</a></li>
+		</script>
+		
+		<script id="template2" type="text/x-jquery-tmpl">
+			<div class="city" id="${province_id}">
+				<ul>
+					{{each(i,location,name) city}}
+					<li>
+						<a href="javascript:void(0)" class="ac_city_choose" location=${location} title="${name}">${name}</a>
+					</li>
+					{{/each}}
+				</ul>		
+			</div>
+		</script>
+		
+		<script type="text/javascript">
+			$.getJSON("data/province.json", function(data) {
+				var dataSize=data.length;
+				var ii=0;
+				for (var m=0;m<dataSize;m++) {
+					
+					if (m%4==0) {
+						$('#template1').tmpl(data[m]).appendTo('#citycon');												
+					} else{
+						var lim=parseInt(m/4) 
+						ii++;
+						var indexm=m;
+						var indexn=m;
+						$('#template11').tmpl(data[indexm++]).appendTo('#citycon>ul:eq('+lim+')')
+						$('#template2').tmpl(data[indexn++]).insertAfter('#citycon>ul:eq('+lim+')');
+					}					
+				}																
+				var queryString = window.location.search;				
+				//默认city的显示样式隐藏
+				$('div.city').css("display", "none");
+				$('a.ac_show_city').click(function() {
+					$('div.city').css("display", "none");
+					var province_id = $(this).attr("data-province_id");
+					var id = '#' + province_id;
+					var pathName = './';
+					if ($(id).size() == 1) {
+						$(id).css("display", "block");
+					}
+				});
+				$('a.ac_city_choose').click(function() {
+					var province_id = $(this).attr('location').slice(0, 3);
+					var location = $(this).attr('location');
+					var locationvalue= $(this).text();
+					locationvalue=encodeURI(locationvalue)
+					window.location.href="wapMobile.html?location="+locationvalue;
+	
+				})
+			});
+		</script>
+
+	</body>
+
+</html>

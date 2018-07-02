@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>用户登录</title>
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/wapMobile.css" />
+		<link href="font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+		<script type="text/javascript" src="bootstrap/js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + 'px'; //46.875
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<link href="css/login.css" rel="stylesheet">
+		<script type="text/javascript">
+			var sleep = 30,
+				interval = null;
+			window.onload = function() {
+				var phone_input = document.getElementById("p_phone");
+				var error_bor = document.getElementsByClassName("error_bor")[0];
+				var p_codes = document.getElementById("p_code");
+				var btn = document.getElementById('btn');
+				var p_phone_submit = document.getElementById('p_phone_submit'); 
+				function phoneCheck(){
+					var phone_inputValue = phone_input.value;
+					var re = /^1\d{10}$/
+					if(re.test(phone_inputValue)) {
+						error_bor.innerHTML = ""
+						return phone_inputValue;
+					} else {
+						error_bor.innerHTML = "请输入正确的手机号码"
+						return false;
+					}
+				}
+				function p_codesCheck(Num){
+					var p_codesValue = p_codes.value;
+					if(p_codesValue==Num){
+						return p_codesValue;
+					}else{
+						return false
+					}
+				}
+				
+				phone_input.addEventListener("blur", function() {
+					phoneCheck();
+				})
+				p_codes.addEventListener("blur", function() {
+					var p_codesValue = p_codes.value;
+					if(p_codesValue=='') {
+						error_bor.innerHTML = "请输入短信验证码"
+					}
+				})
+				btn.onclick = function() {
+					var phoneCheckValue=phoneCheck()
+					if(!interval&&phoneCheckValue) {
+//						alert("验证码已发送,请注意查收")
+						var randomNum = "";
+						for(var i = 0; i < 6; i++) {
+							randomNum += Math.floor(Math.random() * 10);
+						}
+						alert(randomNum)
+						p_codes.addEventListener("keyup",function(){
+							var p_codesCheckcase=p_codesCheck(randomNum);
+							if (p_codesCheckcase) {
+								
+								p_phone_submit.addEventListener("click",function(){
+									var newvaluec=p_codes.value;
+									var newvaluep=phone_input.value;
+									if (newvaluec==p_codesCheckcase&&newvaluep==phoneCheckValue) {
+										window.location.href="wapMobile.html";
+									}
+								})
+							}
+							
+							
+						})
+						
+						this.style.backgroundColor = 'rgb(243, 182, 182)';
+						this.disabled = "disabled";
+						this.style.cursor = "wait";
+						this.value = "重新发送 (" + sleep-- + ")";
+						interval = setInterval(function() {
+							if(sleep == 0) {
+								if(!!interval) {
+									clearInterval(interval);
+									interval = null;
+									sleep = 30;
+									btn.style.cursor = "pointer";
+									btn.removeAttribute('disabled');
+									btn.value = "免费获取验证码";
+									btn.style.backgroundColor = '';
+									
+								}
+								return false;
+							}
+							btn.value = "重新发送 (" + sleep-- + ")";
+						}, 1000);
+					}
+				}
+				
+				
+				
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<div class="loginTop1">
+			<a class="pageback" href="javascript:window.history.back();"></a>
+			<span>登录</span>
+			<span class="glyphicon glyphicon-home" id="home"></span>
+		</div>
+		<div class="top_login">
+			<ul class="nav clearfix">
+				<li>短信随机码登录</li>
+			</ul>
+		</div>
+
+		
+
+			<div class="p_phoneCheck">
+				<div class="error_bor"></div>
+
+				<input class="phone_input " type="text" id="p_phone" name="p_phone" placeholder="手机号码">
+				<i class="fa fa-mobile fa-3x" aria-hidden="true"></i>
+			</div>
+			<div class="p_codes">
+				<input class="phone_input " type="text" id="p_code" name="p_code" placeholder="短信随机码">
+				<i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+				<input class="checkCode" type="button" id="btn" value="免费获取验证码" />
+			</div>
+
+			<input type="button" class="phone_submit" id="p_phone_submit" name="p_phone_submit" value="立即登录" />
+			<footer></footer>
+			<script src="js/webContent.js" type="text/javascript" charset="utf-8"></script>
+
+	</body>
+
+</html>

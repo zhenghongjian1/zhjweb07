@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>掌上门户-中国移动</title>
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="css/wapMobile.css" rel="stylesheet">
+		<script type="text/javascript" src="bootstrap/js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						console.log(clientWidth)
+						if(!clientWidth) return;
+						if (clientWidth<1200) {
+							docEl.style.fontSize = 20 * (clientWidth / 320) + 'px'; //46.875
+						} 
+						if (clientWidth>=1200) {
+							docEl.style.fontSize = 60+ 'px'; //46.875
+						} 
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+
+			$(document).ready(function() {
+				//绑定左右滑动事件
+				$("#carousel-example-generic").on('swipeleft', function() {
+					$(this).carousel('next');
+				});
+				$("#carousel-example-generic").on('swiperight', function() {
+					$(this).carousel('prev');
+				});
+			});
+		</script>
+	</head>
+
+	<body id="bootstrap">
+		<div class="page pageShow" id="welcome">
+			<div class="loginPng">
+				<img src="uploadBaseDir/activity/m_login.png" />
+			</div>
+			<div class="loginTitle">
+				<img src="uploadBaseDir/activity/timg.png" style="width: 100%;height: 100%;" />
+			</div>
+			<div class="waveWrapper waveAnimation">
+				<div class="waveWrapperInner bgTop">
+					<div class="wave waveTop" style="background-image: url(uploadBaseDir/activity/wave-top.png);"></div>
+				</div>
+				<div class="waveWrapperInner bgMiddle">
+					<div class="wave waveMiddle" style="background-image:url(uploadBaseDir/activity/wave-mid.png);"></div>
+				</div>
+				<div class="waveWrapperInner bgBottom">
+					<div class="wave waveBottom" style="background-image: url(uploadBaseDir/activity/wave-bot.png);"></div>
+				</div>
+			</div>
+
+		</div>
+
+		
+
+			<!--头部开始-->
+			<header class="header_home clearfix">
+				<a href="javascript:void(0);" target="_self"><img src="images/logo.png" class="logo"></a>
+				<a href="/three_project/mobilePhone_china/provincelx.html" target="_self" class="chooseLocus">
+					<div class="locus">
+						<span class="shi">北京</span>
+						<img src="images/down.png">
+					</div>
+				</a>
+				<a href="javascript:void(0);" class="search">搜索</a>
+				<a href="javascript:void(0);" class="headMsg"><img src="images/info_n.png" class="info" style="display:none;"></a>
+
+				
+			</header>
+			<!--头部结束-->
+
+			<!--吸顶头部开始-->
+			<header class="header_fix">
+				<a href="javascript:void(0);" target="_self"><img src="images/logo2.png" class="logo"></a>
+				<a href="/three_project/mobilePhone_china/provincelx.html" target="_self" class="chooseLocus">
+					<div class="locus">
+						<span class="shi">北京</span>
+						<img src="images/down2.png">
+					</div>
+				</a>
+				<a href="javascript:;" class="search">搜索</a>
+				<a href="javascript:void(0);" class="headMsg"><img src="images/info2_n.png" class="info" style="display:none;"></a>
+			</header>
+			<!--吸顶头部结束-->
+
+			<script>
+				$(function() {
+					var win = $(window);
+					var sc = $(document);
+					var hg = $('.announcement').offset().top;
+					win.scroll(function() {
+						if(sc.scrollTop() > hg) {
+							$('.header_home').css('display', 'block');
+							$('.header_fix').css('display', 'block');
+						} else {
+							$('.header_fix').css('display', 'none');
+							$('.header_home').css('display', 'block');
+						}
+					});
+					$('.guanbi').click(function() {
+						$('.announcement').remove();
+					})
+				})
+			</script>
+
+			<!--公告开始-->
+			<section class="announcement clearfix" style="">
+				<span class="jjtz"><img src="images/laba.png">&nbsp;公告：</span>
+				<!--只有一条内容时，隐藏marquee标签-->
+				<div style="width:70%; float: left; height: 1.06rem; overflow:hidden; position:relative;" id="movediv">
+					<ul>
+						<li style="float:left;">
+							<a class="title" target="_self" href="" style="display: block; width: 1134px;">“扫黄打非”举报公告</a>
+						</li>
+						<li style="float:left;">
+							<a class="title" target="_self" href="" style="display: block; width: 1134px;">个人信息保护政策</a>
+						</li>
+						<li style="float:left;">
+							<a class="title" target="_self" href="" style="display: block; width: 1134px;">中国移动掌上营业厅服务协议</a>
+						</li>
+					</ul>
+				</div>
+				<a class="guanbi"><img src="images/close.png"></a>
+			</section>
+			<script type="text/javascript">
+				//公告轮播
+				$(function() {
+					var sl = $('#movediv ul li').length;
+					if(!!sl) {
+						
+						$('#movediv ul').css('width', sl * 100 + '%');
+						$('#movediv ul li').css('width', 100 / sl + '%');
+					}
+
+					var int = self.setInterval(movediv, 10000)
+
+					function movediv() {
+						var $movedw = $('#movediv ul:first');
+						$movedw.animate({
+							marginLeft: '-100%'
+						}, 8000, function() {
+							$movedw.css('margin-left', '0').find('li:first').appendTo($movedw);
+						});
+					}
+				})
+			</script>
+			<!--公告结束-->
+
+			<!--轮播开始-->
+			<section class="banner clearfix">
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li class="active" data-target="#carousel-example-generic" data-slide-to="0"></li>
+						<li class="" data-target="#carousel-example-generic" data-slide-to="1"></li>
+						<li class="" data-target="#carousel-example-generic" data-slide-to="2"></li>
+						<li class="" data-target="#carousel-example-generic" data-slide-to="3"></li>
+						<li class="" data-target="#carousel-example-generic" data-slide-to="4"></li>
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<a data-pono="PO5003673000007612018053143986" href="javascript:;" target="_top">
+								<img src="uploadBaseDir/content/jpg/20180531/201805311351532364tI.jpg" alt="超值折扣火爆来袭" title="超值折扣火爆来袭">
+							</a>
+						</div>
+						<div class="item ">
+							<a data-pono="PO5003729000007612018051042758" href="javascript:;" target="_top">
+								<img src="uploadBaseDir/content/png/20180510/20180510103634878F2n.png" alt="宽带专区" title="宽带专区">
+							</a>
+						</div>
+						<div class="item ">
+							<a data-pono="PO5003729000007612018051042759" href="javascript:;" target="_top">
+								<img src="uploadBaseDir/content/png/20180510/20180510103744852Jjb.png" alt="全国流量不限量" title="全国流量不限量">
+							</a>
+						</div>
+						<div class="item ">
+							<a data-pono="PO5003673000007612018060144151" href="javascript:;" target="_top">
+								<img src="uploadBaseDir/content/jpg/20180601/20180601113556776nBc.jpg" alt="夏日冰爽，机惠不等待" title="夏日冰爽，机惠不等待">
+							</a>
+						</div>
+						<div class="item ">
+							<a data-pono="PO5003673000007612018053143988" href="javascript:;" target="_top">
+								<img src="uploadBaseDir/content/jpg/20180531/20180531135445778pFa.jpg" alt="618狂欢节" title="618狂欢节">
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--轮播结束-->
+
+			<!--快捷入口开始-->
+			<section class="kuaijie" style="">
+
+				<!-- 快捷:换肤修改 -->
+				<ul class="clearfix" style="position: static;">
+					<li>
+						<a href="javascript:;"><img src="uploadBaseDir/content/png/20180517/2018051715582591796d.png" title="话费充值" alt="话费充值"><span>话费充值</span></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="uploadBaseDir/content/png/20180517/20180517155920454ryU.png" title="流量充值" alt="流量充值"><span>流量充值</span></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="uploadBaseDir/content/png/20180517/20180517160544181a1D.png" title="账单查询" alt="账单查询"><span>账单查询</span></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="uploadBaseDir/content/png/20180517/20180517160609868CSa.png" title="套餐余量" alt="套餐余量"><span>套餐余量</span></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="uploadBaseDir/content/png/20180517/20180517160632454pGn.png" title="已办业务" alt="已办业务"><span>已办业务</span></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="uploadBaseDir/content/png/20180517/20180517160955042nB6.png" title="流量管家" alt="流量管家"><span>流量管家</span></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="uploadBaseDir/content/png/20180517/201805171610406916zw.png" title="4G专区" alt="4G专区"><span>4G专区</span></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="uploadBaseDir/content/png/20180517/20180517161206947Lac.png" title="国际/港澳台" alt="国际/港澳台"><span>国际/港澳台</span></a>
+					</li>
+				</ul>
+			</section>
+			<!--快捷入口结束-->
+
+			<!--已登录三个广告位开始-->
+			<section class="three_ad">
+				<ul class="clearfix">
+				</ul>
+			</section>
+			<!--已登录三个广告位结束-->
+
+			<!--已登录后显示余额开始-->
+			<section class="rest clearfix" style="display:none;">
+				<p>话费余额&nbsp;&nbsp;<span></span>&nbsp;&nbsp;元</p>
+				<a href="/wd/zdcx/" target="_blank" class="look">[查看详情]</a>
+				<a href="javascript:;" target="_blank" class="charge">充值 </a>
+			</section>
+			<!--已登录后显示余额结束-->
+
+			<!--营销推荐开始-->
+			<section class="banli clearfix">
+				<ul class="clearfix">
+					<li>
+						<a href="javascript:;">
+							<h3>买手机</h3><img src="uploadBaseDir/content/png/20180518/20180518144010375037.png" title="买手机" alt="买手机">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<h3>办业务</h3><img src="uploadBaseDir/content/png/20180518/201805181442097766Ug.png" title="办业务" alt="办业务">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<h3>选号卡</h3><img src="uploadBaseDir/content/png/20180518/20180518144321133FxW.png" title="选号卡" alt="选号卡">
+						</a>
+					</li>
+				</ul>
+			</section>
+			<!--营销推荐结束-->
+
+			<!--通栏广告开始-->
+			<section class="ad">
+				<a href="javascript:;">
+					<img src="uploadBaseDir/content/jpg/20180531/20180531150029125a7l.jpg" title="俱乐部寻宝季" alt="俱乐部寻宝季" />
+				</a>
+			</section>
+			<!--通栏广告结束-->
+
+			<!--终端推荐开始-->
+			<section class="sec_con clearfix zdtj">
+				<h2>
+        <!--换肤开始-->
+        <span>终端推荐</span>
+        <!--换肤结束-->
+    </h2>
+				<ul class="clearfix">
+					<li>
+						<a href="javascript:;" target="_blank">
+							<dl>
+								<dt>
+                        <img src="uploadBaseDir/content/jpg/20180510/20180510103329574n9l.jpg"/>
+                    </dt>
+								<dd class="dd1 clearfix">
+									<span class="center" data-goodsId="1058296" data-skuid="1044381"></span>
+									<del></del>
+								</dd>
+								<dd class="dd2 clearfix">华为P20</dd>
+							</dl>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<dl>
+								<dt>
+                        <img src="uploadBaseDir/content/jpg/20180510/20180510103356350506.jpg"/>
+                    </dt>
+								<dd class="dd1 clearfix">
+									<span class="center" data-goodsId="1057910" data-skuid="1043622"></span>
+								</dd>
+								<dd class="dd2 clearfix">小米 红米5Plus</dd>
+							</dl>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<dl>
+								<dt>
+                        <img src="uploadBaseDir/content/jpg/20180510/20180510103418562E6B.jpg"/>
+                    </dt>
+								<dd class="dd1 clearfix">
+									<span class="center" data-goodsId="1041520" data-skuid="1035812"></span>
+								</dd>
+								<dd class="dd2 clearfix">华为 荣耀8青春版</dd>
+							</dl>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<dl>
+								<dt>
+                        <img src="uploadBaseDir/content/jpg/20180510/20180510103459278s8a.jpg"/>
+                    </dt>
+								<dd class="dd1 clearfix">
+									<span class="center" data-goodsId="1045210" data-skuid="1043449"></span>
+									<del></del>
+								</dd>
+								<dd class="dd2 clearfix">iPhone8 智能手机</dd>
+							</dl>
+						</a>
+					</li>
+				</ul>
+			</section>
+			<!--终端推荐结束-->
+
+			<!--通栏广告开始-->
+			<section class="ad">
+				<a href="javascript:;">
+					<img src="uploadBaseDir/content/jpg/20180528/201805281042056561q3.jpg" title="6.1乐翻天" alt="6.1乐翻天" />
+				</a>
+			</section>
+			<!--通栏广告结束-->
+
+			<!--业务推荐开始-->
+			<section class="sec_con clearfix ywtj">
+				<h2>
+        			<span>业务推荐</span>
+   				 </h2>
+				<ul class="clearfix">
+					<li>
+						<a href="javascript:;" target="_blank">
+							<div class="left">
+								<h3>30元6GB</h3>
+								<p>流量任我享</p>
+							</div>
+							<div class="right"><img src="uploadBaseDir/content/png/20180510/201805101026078078Tr.png"></div>
+						</a>
+					</li>
+					<li>
+						<a href="http://wap.js.10086.cn/LLSD.thtml" target="_blank">
+							<div class="left">
+								<h3>流量商店</h3>
+								<p>总有一款适合你</p>
+							</div>
+							<div class="right"><img src="uploadBaseDir/content/jpg/20180510/20180510102626367cfS.jpg"></div>
+						</a>
+					</li>
+					<p class="more" id="moreYw">
+						<a href="#" target="_top">更多业务&nbsp;></a>
+					</p>
+				</ul>
+			</section>
+			<!--业务推荐结束-->
+
+			<!--通栏广告开始-->
+			<section class="ad">
+				<a href="javascript:;">
+					<img src="uploadBaseDir/content/png/20180510/20180510101901092751.png" title="全国流量不限量" alt="全国流量不限量" />
+				</a>
+			</section>
+			<!--通栏广告结束-->
+
+			<!--号卡推荐开始-->
+			<section class="sec_con clearfix hktj">
+				<h2>
+        			<span>号卡推荐</span>
+    			</h2>
+				<div class="left clearfix">
+					<a href="javascript:;" target="_blank">
+						<img src="uploadBaseDir/content/png/20180510/201805101013002033ah.png">
+						<h3>万能副卡</h3>
+						<p>主卡代付，共享主卡语音流量</p>
+					</a>
+				</div>
+				<div class="right clearfix">
+					<ul>
+						<li>
+							<a href="javascript:;" target="_blank">
+								<div class="lf">
+									<h3>至尊畅享卡</h3>
+									<p>送50元话费</p>
+								</div>
+								<div class="rg"><img src="uploadBaseDir/content/png/20180510/20180510101341764q5V.png"></div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" target="_blank">
+								<div class="lf">
+									<h3>移动大王卡</h3>
+									<p>1元800M无限叠</p>
+								</div>
+								<div class="rg"><img src="uploadBaseDir/content/png/20180531/201805311631352982rt.png"></div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!--号卡推荐结束-->
+
+			<!--特色专区开始-->
+			<section class="sec_con clearfix tszq">
+				<h2>
+        			<span>特色专区</span>
+       
+    			</h2>
+				<ul class="clearfix">
+					<li>
+						<a href="javascript:;" target="_blank">
+							<div class="left">
+								<h3>国际/港澳台</h3>
+								<p>畅游各地不断网</p>
+							</div>
+							<div class="right"><img src="uploadBaseDir/content/png/20180517/20180517155502169d2N.png"></div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<div class="left">
+								<h3>活动专区</h3>
+								<p>用户福利全在这里</p>
+							</div>
+							<div class="right"><img src="uploadBaseDir/content/png/20180517/2018051715551251867h.png"></div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<div class="left">
+								<h3>宽带专区</h3>
+								<p>百兆宽带优惠享</p>
+							</div>
+							<div class="right"><img src="uploadBaseDir/content/png/20180517/20180517155534068YK8.png"></div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<div class="left">
+								<h3>手机病毒预警</h3>
+								<p>保护个人信息安全</p>
+							</div>
+							<div class="right"><img src="uploadBaseDir/content/png/20180517/20180517155539389wKN.png"></div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<div class="left">
+								<h3>流量免费集中营</h3>
+								<p>省流量、赚流量</p>
+							</div>
+							<div class="right"><img src="uploadBaseDir/content/png/20180517/20180517155551300XVh.png"></div>
+						</a>
+					</li>
+					<li>
+						<a href="http://club.10086.cn" target="_blank">
+							<div class="left">
+								<h3>移动俱乐部</h3>
+								<p>贴心服务精彩无限</p>
+							</div>
+							<div class="right"><img src="uploadBaseDir/content/png/20180517/201805171547321942yC.png"></div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<div class="left">
+								<h3>全国流量不限量</h3>
+								<p>特邀用户办理送话费</p>
+							</div>
+							<div class="right"><img src="uploadBaseDir/content/png/20180510/20180510114624223irC.png"></div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<div class="left">
+								<h3>万能副卡</h3>
+								<p>共享主卡不限量流量</p>
+							</div>
+							<div class="right"><img src="uploadBaseDir/content/png/20180510/20180510114622550KQj.png"></div>
+						</a>
+					</li>
+				</ul>
+			</section>
+			<!--特色专区结束-->
+			<!--猜您喜欢开始-->
+			<section class="sec_con clearfix guess cnxh" style="display:none;">
+				<h2>
+        <!--换肤开始-->
+        <span>猜你喜欢</span>
+        <!--换肤结束-->
+    </h2>
+			</section>
+			<!--猜您喜欢结束-->
+
+			<footer>
+			</footer>
+
+			<!--底部固定导航开始-->
+			<div class="bnav">
+				<!--换肤开始-->
+				<!--换肤结束-->
+				<ul>
+					<li class="cur">
+						<a href="javascript:;" data-url="/wap.10086.cn/">
+							<img src="uploadBaseDir/content/png/20180503/20180503154750444Km5.png">
+							<span>首页</span></a>
+					</li>
+					<li class="">
+						<a href="javascript:;" data-url="/touch.10086.cn/">
+							<img src="uploadBaseDir/content/png/20180503/20180503154754480y7a.png">
+							<span>商城</span>
+						</a>
+					</li>
+					<li class="">
+						<a href="javascript:;" data-url="/wap.10086.cn/yh/js/index_250_250.html">
+							<img src="uploadBaseDir/content/png/20180503/201805031548018675Z6.png">
+							<span>优惠</span>
+						</a>
+					</li>
+					<li class="">
+						<a href="javascript:;" data-url="/wap.10086.cn/wd/index.html">
+							<img src="uploadBaseDir/content/png/20180503/201805031548109810vs.png">
+							<span>我的</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		
+		<!--底部固定导航结束-->
+		<script src="js/webContent.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var windowCache = window.location.search;
+			if(windowCache != '') {
+				var locationV = decodeURI(windowCache.split("?location=")[1]);
+				if(locationV != "undefined") {
+					$(".shi").html(locationV)
+				}
+			}
+
+			function bind(obj, ev, fn) {
+				if(obj.addEventListener) {
+					//obj.addEventListener("click",m1,false);
+					obj.addEventListener(ev, fn, false);
+				} else {
+					obj.attachEvent('on' + ev, function() {
+						fn.call(obj);
+					})
+				}
+			}
+			//页面切换
+			function fnEnd() {
+				
+				document.querySelector("#welcome").classList.remove("pageShow");
+				
+				
+				
+				}
+			
+			function fnLoad() {
+				//欢迎页面 page
+				var welcome = document.querySelector("#welcome");
+				//绑定事件：
+				bind(welcome,"transitionend",fnEnd);
+				
+				//时钟
+				window.setTimeout(function() {
+					welcome.style.opacity = 0;
+
+				}, 3000);
+			}
+			fnLoad(); //动画结束后，进入首页
+			
+		</script>
+	</body>
+
+</html>

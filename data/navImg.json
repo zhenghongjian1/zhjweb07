@@ -1,0 +1,28 @@
+[
+	{
+		"wdesc": "超值折扣火爆来袭",
+		"wid": 1,
+		"wimg": "uploadBaseDir/content/jpg/20180531/201805311351532364tI.jpg",
+		"wname": "超值折扣火爆来袭"
+	}, {
+		"wdesc": "宽带专区",
+		"wid": 2,
+		"wimg": "uploadBaseDir/content/png/20180510/20180510103634878F2n.png",
+		"wname": "宽带专区"
+	}, {
+		"wdesc": "全国流量不限量",
+		"wid": 3,
+		"wimg": "uploadBaseDir/content/png/20180510/20180510103744852Jjb.png",
+		"wname": "全国流量不限量"
+	}, {
+		"wdesc": "夏日冰爽，机惠不等待",
+		"wid": 4,
+		"wimg": "uploadBaseDir/content/jpg/20180601/20180601113556776nBc.jpg",
+		"wname": "夏日冰爽，机惠不等待"
+	}, {
+		"wdesc": "618狂欢节",
+		"wid": 5,
+		"wimg": "uploadBaseDir/content/jpg/20180531/20180531135445778pFa.jpg",
+		"wname": "618狂欢节"
+	}
+] 

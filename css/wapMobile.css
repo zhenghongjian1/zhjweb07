@@ -1,0 +1,310 @@
+@charset "utf-8";
+/* CSS Document */
+body,ul,p,h1,h2,h3,h4,h5,dl,dt,dd,form,input,textarea,select{padding:0px;margin:0;}
+li{list-style:none;}
+img{border:none;}
+a:link,a:visited{text-decoration:none;color:#666666;}
+a:hover,a:active{text-decoration:none;color:#666666;}
+input,button{-webkit-appearance:none;outline:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
+body{background:#fff;font-family:"微软雅黑" Helvetica;font-size:12px;color:#666666;-webkit-text-size-adjust:100%;}
+.clearfix:after{content:'';display:block;clear:both;}
+.clearfix{zoom:1;}
+
+#welcome{
+	transition: 3s;
+}
+.page {top: 0;left: 0;width: 100%;height: 100%;display: none;overflow: hidden;position: absolute;background: plum;min-width: 300px; z-index: 100;}
+.page>.loginPng{position: relative; width: 100%; left: 0; top:0%; animation: scaleF 2s ease;transform: scale(0);transform-origin: 50% 50% 0 ; -webkit-transform-origin: 50% 50% 0; animation-fill-mode:forwards}
+.page>.loginPng>img{width: 100%;}
+
+.page>.loginTitle{position: relative; width: 100%;height:150px; left: 0; top: 0%;opacity: 0;transform:translateY(100px); animation: moveTop 3s 2s ease; animation-fill-mode:forwards}
+@keyframes scaleF{
+	
+	0% {
+        transform:scaleY(0,0)
+    }
+    50% {
+        transform:scaleY(0.5,0.5)
+    }
+    100% {
+        transform:scaleY(1)
+    }
+}
+@keyframes moveTop{
+	
+	
+    
+    100% {
+        transform:translateY(0px);
+        opacity: 1;
+    }
+}
+
+.pageShow {display: block;}
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+.waveWrapper {overflow: hidden;position: absolute;left: 0;right: 0;bottom: 0;top: 0;margin: auto;}
+.waveWrapperInner {position: absolute;width: 100%;overflow: hidden;height: 100%;bottom: -1px;}
+.bgTop {z-index: 15;opacity: 0.5;}
+.bgMiddle {z-index: 10;opacity: 0.75;
+}
+.bgBottom {z-index: 5;}
+.wave {position: absolute;left: 0;width: 200%;height: 100%;background-repeat: repeat no-repeat;background-position: 0 bottom;transform-origin: center bottom;
+}
+.waveTop {background-size: 50% 50px;}
+.waveAnimation .waveTop {
+  animation: move-wave 3s linear infinite;
+   -webkit-animation: move-wave 3s;
+   /*-webkit-animation-delay: 1s;
+   animation-delay: 1s;*/
+}
+.waveMiddle {
+    background-size: 50% 50px;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+    background-size: 50% 30px;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
+
+
+
+
+/*搜索栏*/
+.header_home{height:1.92rem;padding:0 0.42rem;background:#f2f2f2;position:relative;}
+.header_home .logo{float:left;display:block;width:1.92rem;height:1.28rem; z-index:2;position:absolute;left:0.42rem;top:0.46rem;}
+.header_home .locus{float:left;padding:0.85rem 0.42rem 0 0.32rem; z-index:2;position:absolute;left:2.34rem;}
+.header_home .locus .shi{float:left;display:inline-block;font:0.512rem/0.512rem "microsoft yahei";color:#000000;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.header_home .locus img{float:left;display:inline-block;margin-left:0.19rem;width:0.384rem;height:0.46rem;}
+.header_home .search{
+	float:left;
+	width:7.95rem;
+	height:1.17rem;
+	padding-left:1.28rem;
+	font:0.512rem/1.17rem "microsoft yahei";
+	color:#515151;
+	border:0.064rem solid #ffffff;
+	border-radius:4px;
+	background:#dbdbdb url("../images/search.png") no-repeat left center/auto 100%;
+	z-index:2;
+	position:absolute;
+	top:0.42rem;
+	left:6rem;
+}
+.header_home .info{float:right;display:block;width:1.28rem;height:1.28rem; z-index:2;position:absolute;top:0.34rem;right:0.42rem;}
+.header_home .hf_header{display:block;width:100%;position:absolute;left:0px;top:0px;right:0px;z-index:1;}
+
+/*顶部搜索栏*/
+.header_fix{
+	display:none;
+	height:2.34rem;
+	padding:0 0.42rem;
+	background:url("../images/headbg.png") repeat-x left top/auto 100%;
+	position:fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	z-index:900;
+	-webkit-transform:translateZ(0);
+	}
+.header_fix .logo{float:left;display:block;width:1.92rem;height:1.28rem;margin-top:0.46rem;}
+.header_fix .locus {float:left;padding:0.85rem 0.42rem 0 0.32rem;}
+.header_fix .locus .shi{float:left;display:inline-block;font:0.512rem/0.512rem "microsoft yahei";color:#ffffff;}
+.header_fix .locus img{float:left;display:inline-block;margin-left:0.19rem;width:0.384rem;height:0.46rem;}
+.header_fix .search{float:left;width:8.95rem;height:1.17rem;margin-top:0.42rem;padding-left:1.28rem;font:0.512rem/1.17rem "microsoft yahei";color:#ffffff;border:0px;border-radius:4px;background:rgba(219,219,219,0.4) url("../images/search2.png") no-repeat left center/auto 100%;}
+.header_fix .info{float:right;display:block;width:1.28rem;height:1.28rem;margin-top:0.34rem;}
+
+/*滚动公告*/
+.announcement{float:left;width:100%;height:1.06rem;line-height:1.06rem;background:#ff0000;}
+.announcement .jjtz{color:#fff;font-size:0.46rem;padding-left:0.384rem;float:left;}
+.announcement .jjtz img{display:inline-block;width:0.57rem;height:0.85rem;}
+.announcement .title{color:#fff; font-size:0.46rem; text-decoration:none; float:left; width:60%;overflow:hidden;text-overflow:ellipsis; white-space:nowrap;}
+.announcement .guanbi{float:right;display:inline-block;width:0.512rem;height:0.512rem;margin:0.27rem 0.42rem 0 0;cursor:pointer;}
+.announcement .guanbi img{float:right;display:inline-block;width:0.512rem;height:0.512rem;}
+.announcement ul{list-style:none; margin:0;}
+.announcement marquee{ float:left; width:70%; height:1.06rem;}
+.announcement marquee ul{list-style:none; margin:0; overflow:hidden;}
+.announcement marquee ul li{float:left; padding-right:2.13rem;}
+.announcement marquee ul li .title{width:100%;}
+
+/*轮播图*/
+.banner{float:left;width:100%;}
+.banner .item img{width:100%;}
+.banner .carousel-indicators{margin-bottom:3px; bottom:0;}
+.banner .carousel-indicators li{background:#ffffff;width:14px;height:14px;margin:0;opacity:0.7;}
+.banner .carousel-indicators .active{opacity:1;}
+
+/*快捷入口*/
+.kuaijie{float:left;width:100%;height:6.93rem;position:relative;overflow:hidden;}
+.kuaijie ul{padding:0 0 0.85rem;width:100%;position:absolute;top:0px;left:0px;right:0px;z-index:10;}
+.kuaijie ul li{width:25%;float:left;text-align:center;padding-top:0.64rem;}
+.kuaijie ul li a{display:block;text-decoration:none;}
+.kuaijie ul li a img{display:block;width:1.70rem;height:1.70rem;margin:0 auto;}
+.kuaijie ul li a span{display:block;padding-top:0.27rem;font:0.46rem/0.46rem "microsoft yahei";color:#666666;}
+.kuaijie .hf{display:block;width:100%;height:auto;position:absolute;top:0px;left:0px;right:0px;z-index:1;}
+
+/*已登录三个广告位*/
+.three_ad{width:100%;}
+.three_ad ul li{float:left;border-right:1px dashed #cfc5c6;overflow:hidden;}
+.three_ad ul li:last-child{border-right:0px;}
+.three_ad ul li:nth-of-type(1){width:5.01rem;height:4.26rem;}
+.three_ad ul li:nth-of-type(2){width:5.97rem;height:4.26rem;}
+.three_ad ul li:nth-of-type(3){width:5.01rem;height:4.26rem;}
+.three_ad ul li:nth-of-type(1) img{width:5.01rem;height:4.26rem;}
+.three_ad ul li:nth-of-type(2) img{width:5.97rem;height:4.26rem;}
+.three_ad ul li:nth-of-type(3) img{width:5.01rem;height:4.26rem;}
+
+/*通栏广告图*/
+.ad{width:100%;padding:0;margin-top:4px;}
+.ad img{width:100%;}
+
+/*业务办理*/
+.banli{width:100%;}
+.banli ul{float:left;width:100%;padding:0px;margin:0;}
+.banli ul li{float:left;width:5.16rem;height:6.05rem;margin-right:0.256rem;border:1px solid #eeeeee;text-align:center;background:#ffffff;box-sizing:border-box;}
+.banli ul li a{text-decoration:none;}
+.banli ul li a h3{padding:1.06rem 0 0.64rem;font:0.72rem/0.72rem "microsoft yahei";}
+.banli ul li a img{width:2.77rem;height:2.77rem;}
+.banli ul li:last-child{margin:0;}
+.banli ul li:nth-of-type(1) a h3{color:#ef2869;}
+.banli ul li:nth-of-type(2) a h3{color:#ff9d04;}
+.banli ul li:nth-of-type(3) a h3{color:#896ef9;}
+
+/*栏目区块区域*/
+.sec_con{width:100%;padding:0;}
+.sec_con h2{width:100%;height:1.92rem;margin:0;background:#f2f2f2;position:relative;}
+.sec_con h2 span{display:block; padding-left:0.8rem;margin-left:-1.856rem; font:0.72rem/0.72rem "microsoft yahei";position:absolute;top:0.62rem;left:50%;z-index:2;}
+.sec_con .hf_h2{display:block;width:100%;height:auto;position:absolute;top:0px;left:0px;right:0px;z-index:3;}
+
+/*终端推荐*/
+.zdtj h2 span{color:#ff4a7f; background:url("../images/icon1.png") no-repeat left center/0.66rem 0.66rem;}
+.zdtj ul{width:100%;margin:0;padding:0;background:#fff;}
+.zdtj ul li{float:left;width:50%;padding:0.53rem;border-right:1px solid #eeeeee;border-bottom:1px solid #eeeeee;}
+.zdtj ul li a{text-decoration:none;}
+.zdtj ul li dl{width:100%;}
+.zdtj ul li dl dt{width:5.97rem;height:4.90rem;margin:0 auto;position:relative;}
+.zdtj ul li dl dt img{width:5.97rem;height:4.90rem;position:absolute;top:0px;left:0px;}
+.zdtj ul li dl dt span{width:1.70rem;height:1.70rem;text-align:center;font:0.384rem/1.70rem "microsoft yahei";color:#ffffff;background:url("../images/d.png") no-repeat center center/100% 100%;position:absolute;top:-0.32rem;right:-0.17rem;}
+.zdtj ul li dl dd.dd1{width:5.97rem;padding-top:0.448rem;margin:0 auto;}
+.zdtj ul li dl dd.dd1 span{display:inline-block;float:left;font:0.64rem/0.64rem "microsoft yahei";color:#e40077;}
+.zdtj ul li dl dd.dd1 del{display:inline-block;float:right;font:0.46rem/0.64rem "microsoft yahei";color:#aaaaaa;}
+.zdtj ul li dl dd.dd1 span.center{display:block;float:none;text-align:center;}
+.zdtj ul li dl dd.dd2{width:100%;padding-top:0.384rem;margin:0 auto;font:0.512rem/0.612rem "microsoft yahei";color:#333333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;}
+.zdtj ul li:nth-of-type(2n){border-right:0px;}
+.zdtj ul li:nth-last-of-type(1){border-bottom:0px;}
+.zdtj ul li:nth-last-of-type(2){border-bottom:0px;}
+
+/*业务推荐*/
+.ywtj h2 span{color:#9832ff; background:url("../images/icon2.png") no-repeat left center/0.66rem 0.66rem;}
+.ywtj ul{width:100%;margin:0;padding:0;background:#fff;}
+.ywtj ul li{float:left;width:50%;border-right:1px solid #eeeeee;border-bottom:1px solid #eeeeee;}
+.ywtj ul li a{text-decoration:none;}
+.ywtj ul li .left{float:left;width:5.33rem;padding-left:0.42rem;}
+.ywtj ul li .left h3{width:100%;padding-top:0.96rem;font:0.64rem/0.64rem "microsoft yahei";color:#333333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ywtj ul li .left p{width:100%;padding:0.36rem 0 1.13rem;font:0.512rem/0.512rem "microsoft yahei";color:#999999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ywtj ul li .right{float:right;width:1.92rem;height:1.92rem;margin:0.85rem 0.53rem 0 0;border-radius:50%;overflow:hidden;}
+.ywtj ul li .right img{width:1.92rem;height:1.92rem;}
+.ywtj .more{width:100%;margin:0;font:0.72rem/1.92rem "microsoft yahei";text-align:center;background:#f2f2f2;}
+.ywtj .more,.ywtj .more a{color:#333333;background:#fff;}
+
+/*特色专区*/
+.tszq h2 span{color:#117dea; background:url("../images/icon4.png") no-repeat left center/0.66rem 0.66rem;}
+.tszq ul{width:100%; margin:0; padding:0; background:#fff;}
+.tszq ul li{float:left; width:50%; border-right:1px solid #eeeeee; border-bottom:1px solid #eeeeee;}
+.tszq ul li a{text-decoration:none;}
+.tszq ul li .left{float:left; width:5.33rem; padding-left:0.42rem;}
+.tszq ul li .left h3{width:100%;padding-top:0.96rem;font:0.64rem/0.64rem "microsoft yahei";color:#333333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tszq ul li .left p{width:100%;padding:0.36rem 0 1.13rem;font:0.512rem/0.512rem "microsoft yahei";color:#999999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tszq ul li .right{float:right;width:1.92rem;height:1.92rem;margin:0.85rem 0.53rem 0 0;border-radius:50%;overflow:hidden;}
+.tszq ul li .right img{width:1.92rem;height:1.92rem;}
+
+/*号卡推荐*/
+.hktj h2 span{color:#23b3e9; background:url("../images/icon3.png") no-repeat left center/0.66rem 0.66rem;}
+.hktj .left{float:left;width:50%;text-align:center;}
+.hktj .left img{display:block;width:3.84rem;height:3.84rem;margin:0.64rem auto 0;}
+.hktj .left h3{width:100%;margin:0;padding:0.59rem 0.64rem 0;font:0.64rem/0.64rem "microsoft yahei";color:#333333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hktj .left p{width:100%;margin:0;padding:0.34rem 0.64rem 0.64rem;font:0.512rem/0.512rem "microsoft yahei";color:#999999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hktj .right{float:left;width:50%;border-left:1px solid #eeeeee;}
+.hktj .right ul{float:left;width:100%;padding:0;margin:0;}
+.hktj .right ul li{float:left;width:100%;border-bottom:1px solid #eeeeee;}
+.hktj .right ul li:last-child{border-bottom:0px;}
+.hktj .right .lf{float:left;width:5.12rem;overflow: hidden;}
+.hktj .right .lf h3{margin:0;padding:1rem 0 0 0.42rem;font:0.64rem/0.64rem "microsoft yahei";color:#333333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hktj .right .lf p{margin:0;padding:0.36rem 0 1.13rem 0.42rem;font:0.512rem/0.512rem "microsoft yahei";color:#999999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hktj .right .rg{float:right;width:1.92rem;height:1.92rem;margin:0.64rem 0.53rem 0 0;}
+.hktj .right .rg img{width:1.92rem;height:1.92rem;}
+
+/*猜您喜欢*/
+.guess h2 span{color:#e40077; background:url("../images/icon5.png") no-repeat left center/0.66rem 0.66rem;}
+.guess ul li a{text-decoration:none;}
+.guess ul{width:100%;margin:0.42rem 0;padding:0;background:#fff;border-top:1px solid #eeeeee;}
+.guess ul li{float:left;width:33.3%;border-right:1px solid #eeeeee;border-bottom:1px solid #eeeeee;}
+.guess ul li:nth-of-type(3n){border-right:0px;}
+.guess ul li img{display:block;width:3.84rem;height:3.84rem;margin:0.53rem auto 0;}
+.guess ul li h3{padding:0.29rem 0.42rem 0;font:0.59rem/0.59rem "microsoft yahei";color:#333333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;}
+.guess ul li p{height:1.124rem;padding:0.192rem 0.42rem 0.42rem;font:0.512rem/0.512rem "microsoft yahei";color:#b2b2b2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;}
+
+/*页脚*/
+.op{width:100%;background:#f7f7f7;}
+.op .c1{border-bottom:1px solid #eeeeee;border-top:1px solid #eeeeee;padding:0.53rem 0;font:0.59rem/0.59rem "microsoft yahei";}
+.op a{color:#0085d0;text-decoration:none;}
+.op .c1 .t1{padding-left:0.42rem;}
+.op .c1 .t1 span{color:#666666;}
+.op .c1 .t2{text-align:right;padding-right:0.42rem;}
+.footer-links{float:left;width:100%;background:#f7f7f7;}
+.footer-links ul{padding:0;float:left;width:100%;padding:1.06rem;margin:0;}
+.footer-links ul li{float:left;width:25%;text-align:center;font:0.512rem/0.512rem "microsoft yahei";}
+.footer-links ul li a{color:#0085d0;text-decoration:none;}
+.footer-links .cur a{color:#000000;}
+.address{width:100%;padding-bottom:2.77rem;text-align:center;font:0.512rem/0.512rem "microsoft yahei";color:#000;background:#f7f7f7;}
+
+/*底部导航*/
+.bnav{height:2.02rem;border-top:1px solid #e2e2e2;background:#ffffff;position:fixed;bottom:0px;left:0px;right:0px;z-index:10;}
+.bnav ul{position:absolute;bottom:0px;left:0px;right:0px;z-index:5;}
+.bnav ul li{float:left;width:25%;text-align:center;}
+.bnav ul li img{display:block;width:1.06rem;height:1.06rem;margin:0.14rem auto 0;}
+.bnav ul li span{display:block;padding:0.10rem 0 0.192rem;font:0.512rem/0.512rem "microsoft yahei";color:#666666;}
+.bnav ul li.cur span{color:#0085d0;}
+.hf_bottom{display:block;width:100%;height:auto;position:absolute;bottom:0px;left:0px;right:0px;z-index:1;}
+
+
+/*地势选择*/
+.select_city{/*text-align:center;*/ font-size:1.25em; color:#666666; background:#efefef; border-bottom:1px solid #dfdfdf; height:40px; line-height:40px;}
+.select_city .pageback{float:left; height:40px; width:50px;}
+.select_city .pageback::before{ border-left: 2px solid #333;border-top: 2px solid #333;content: "";display: block;font-size: 0; height: 11px; left: 20px; position: relative;top: 14px;transform: rotate(-45deg); width: 11px;}
+.tips{text-align:center; font-size:1.25em; color:#666666; padding:14px 0;}
+.citycon{float:left; width:100%; border-top:1px solid #dfdfdf;}
+#bootstrap .last ul:last-child {border-bottom:1px solid #dfdfdf;}
+.citycon h1{font-size:12px; height:40px; line-height:40px; margin:0; background:#f2f5f8; padding:0 20px;border-bottom:1px solid #dfdfdf; position:relative;}
+.citycon h1::before {background:#e40177;content: ".";display: block;font-size: 0;height: 12px; left:10px;margin-top: -6px; position: absolute; top:50%; width: 3px;}
+.citycon ul{ padding:0; margin:0; border-bottom:1px dashed #dfdfdf; float:left; width:100%;}
+.citycon ul:last-child {border: 0 none;}
+.citycon ul li{float:left; width:25%; list-style:none; height:40px; line-height:40px; text-align:center;position:relative;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.citycon ul li a{font-size:1.25em; color:#666; text-decoration:none;}
+.citycon ul li::before {background: #dfdfdf;content: ".";display: block;font-size: 0;height: 14px;position: absolute;right: 0;top: 30%;width: 1px;}
+.citycon .city ul{background:#eee;}
+.citycon .city ul li a{font-size:1.20em; color:#666; text-decoration:none;}
+
+/*内容*/
+.content{ float:left; width:100%;}
+.content h1{font:24px/34px microsoft yahei; margin:30px auto 30px;width:80%; text-align:center; line-height:1.1; overflow:hidden; /*text-overflow:ellipsis; white-space:nowrap;*/}
+.content .h2{font-size:16px;line-height:24px;margin:0 auto 45px;width:80%; color:#bbbbbb; text-align:center; }
+.content .text{padding:36px 20px;font-size:14px; width:96%; margin:0 auto;  border-top:1px dashed #bbb;}
+.source,.time{display:block;}
+/*二级页面头部*/
+.header{height:1.92rem;font:0.768rem/1.92rem "microsoft yahei";text-align:center;background:#f7f7f7;color:#333333;position:relative;}
+.header .back{width:0.40rem;height:0.72rem;position:absolute;left:0.42rem;top:0.59rem;}
+
