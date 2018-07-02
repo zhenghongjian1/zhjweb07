@@ -1,2 +1,5 @@
-# zhjweb07
-mobilePhoneProject
+# zhjweb——wapmobile共有三层界面
+1.登录验证界面（验证码验证）
+2.移动手机端首页（使用rem布局）
+3.移动地区选择界面（采用jquery——tmpl模板实现省市联动效果）
+
